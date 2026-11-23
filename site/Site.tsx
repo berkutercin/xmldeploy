@@ -11,10 +11,10 @@ import pdfGib from './assets/pdf-gib.png';
 
 // Yeni sürümde bu blok birlikte güncellenir (SHA-256: release/ içindeki kurulum dosyasının özeti).
 const RELEASE = {
-  version: '1.1.0',
+  version: '1.1.1',
   date: '23 Kasım 2026',
   size: '117 MB',
-  sha256: '2f11005d1841354c55ae2f138171c888ccce8cccd2323534577795cf0656cbb9',
+  sha256: '4b5ede053620675bd2bd87cde2beaa0118fad2be3c51301591f53df6d74728a8',
 };
 const REPO = 'https://github.com/berkutercin/xmldeploy';
 const DOWNLOAD = `${REPO}/releases/download/v${RELEASE.version}/ZarfPDF.Setup.${RELEASE.version}.exe`;

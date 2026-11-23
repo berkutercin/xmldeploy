@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- ZarfPDF: mürekkep zemin, kapağı açılmış A4 sayfa (zarf → sayfa), sol alt köşede GİB mührü. -->
+  <rect width="32" height="32" fill="#16181a"/>
+  <rect x="9.5" y="4.5" width="15" height="21" fill="#fdfcfd"/>
+  <path d="M9.5 4.5 H24.5 L17 11.5 Z" fill="#c9c7c4"/>
+  <circle cx="10" cy="24.5" r="5" fill="#dcddf3" stroke="#16181a" stroke-width="1.2"/>
+  <circle cx="10" cy="24.5" r="2.9" fill="none" stroke="#2e3170" stroke-width="0.5" opacity="0.7"/>
+</svg>

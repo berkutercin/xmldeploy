@@ -1,7 +1,7 @@
 {
   "name": "zarf-pdf",
   "private": true,
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "e-Fatura / e-Arşiv / e-İrsaliye XML ve GİB Zarf XML → PDF dönüştürücü ve GİB durum sorgulama (masaüstü)",
   "type": "module",
   "scripts": {
@@ -55,7 +55,16 @@
     },
     "nsis": {
       "oneClick": false,
-      "allowToChangeInstallationDirectory": true
+      "allowToChangeInstallationDirectory": true,
+      "installerSidebar": "build/installerSidebar.bmp",
+      "uninstallerSidebar": "build/installerSidebar.bmp",
+      "installerHeader": "build/installerHeader.bmp",
+      "installerLanguages": [
+        "tr_TR"
+      ],
+      "language": "1055",
+      "shortcutName": "ZarfPDF",
+      "include": "build/installer.nsh"
     }
   }
 }

@@ -1,0 +1,61 @@
+@import "./tokens.css";
+@import "./base.css" layer(base);
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* Etiket sesi: 11px mono, büyük harf, geniş aralık. Yalnızca etiket ve ölçüde kullanılır. */
+  .token {
+    @apply font-mono text-[11px] uppercase leading-[1.25] tracking-[0.14em];
+  }
+  .btn {
+    @apply token inline-flex h-10 items-center justify-center gap-2 border border-ink bg-transparent px-4 text-ink transition-colors duration-micro hover:bg-paper-2;
+  }
+  .btn-primary {
+    @apply btn bg-accent text-accent-ink hover:bg-ink-2 hover:border-ink-2;
+  }
+  .btn-quiet {
+    @apply token inline-flex h-10 items-center gap-2 px-1 text-muted underline-offset-4 transition-colors duration-micro hover:text-ink hover:underline;
+  }
+  .icon-btn {
+    @apply inline-flex h-8 w-8 items-center justify-center text-muted transition-colors duration-micro hover:bg-paper-2 hover:text-ink;
+  }
+  .input {
+    @apply h-11 w-full border border-rule bg-paper-3 px-3 text-[15px] text-ink transition-colors duration-micro placeholder:text-muted hover:border-ink-2 focus:border-ink focus:outline-none;
+  }
+  .label {
+    @apply token mb-2 block text-muted;
+  }
+  /* Belge listesi Allo ile yazılır; listedeki mono etiketler de aynı yüze geçer. */
+  .list-face {
+    --font-body: var(--font-list);
+    --font-mono: var(--font-list);
+    font-family: var(--font-list);
+  }
+  .check {
+    @apply h-4 w-4 cursor-pointer;
+    accent-color: var(--color-seal-ink);
+  }
+  /* Levha: köşelerinde kayıt artıları olan baskı alanı. */
+  .plate {
+    @apply relative border border-rule bg-paper-3;
+  }
+  .plate-mark {
+    @apply pointer-events-none absolute h-4 w-4 text-ink;
+  }
+  .plate-mark::before, .plate-mark::after {
+    content: '';
+    position: absolute;
+    background: currentColor;
+  }
+  .plate-mark::before { left: 50%; top: 0; bottom: 0; width: 1px; }
+  .plate-mark::after { top: 50%; left: 0; right: 0; height: 1px; }
+}
+
+@keyframes stamp-in {
+  from { opacity: 0; transform: scale(1.12) rotate(-8deg); }
+  to { opacity: 1; transform: scale(1) rotate(-8deg); }
+}
+.stamp-in { animation: stamp-in var(--dur-long) var(--ease-out) both; }

@@ -1,0 +1,59 @@
+{
+  "name": "zarf-pdf",
+  "private": true,
+  "version": "1.1.0",
+  "description": "e-Fatura / e-Arşiv / e-İrsaliye XML ve GİB Zarf XML → PDF dönüştürücü ve GİB durum sorgulama (masaüstü)",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "tsc -b && vite build && node scripts/build-electron.mjs",
+    "start": "npm run build && electron .",
+    "dist": "npm run build && electron-builder --win",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@fontsource/dm-mono": "^5.3.0",
+    "@fontsource/instrument-sans": "^5.3.0",
+    "@types/node": "^22.13.9",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "allo-font": "^1.0.3",
+    "autoprefixer": "^10.4.20",
+    "electron": "^45.4.1",
+    "electron-builder": "^26.18.0",
+    "esbuild": "^0.25.12",
+    "jsdom": "^26.0.0",
+    "jszip": "^3.10.1",
+    "lucide-react": "^0.468.0",
+    "postcss": "^8.5.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3",
+    "vite": "^6.2.0",
+    "vitest": "^5.1.1",
+    "xslt-polyfill": "^1.0.31"
+  },
+  "main": "dist-electron/main.cjs",
+  "build": {
+    "appId": "com.berkutercin.zarfpdf",
+    "productName": "ZarfPDF",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**",
+      "dist-electron/**",
+      "build/icon.png"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}

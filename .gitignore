@@ -1,0 +1,14 @@
+node_modules
+dist
+dist-agent
+.vercel
+*.log
+*.tsbuildinfo
+bin/
+.DS_Store
+Thumbs.db
+.hallmark
+dist-electron
+release
+.claude/
+.impeccable/

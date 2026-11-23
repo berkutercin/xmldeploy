@@ -1,0 +1,33 @@
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+html { scrollbar-color: var(--color-rule) var(--color-paper); }
+body {
+  margin: 0;
+  /* Kâğıt bir köşede sıcağa, karşı köşede serine kayar; düz dijital gri değil. */
+  background:
+    radial-gradient(ellipse 60% 50% at 0% 0%, var(--color-paper-warm), transparent 70%),
+    radial-gradient(ellipse 60% 50% at 100% 100%, var(--color-paper-cool), transparent 70%),
+    var(--color-paper);
+  background-attachment: fixed;
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  caret-color: var(--color-ink);
+}
+::selection { background: var(--color-seal); color: var(--color-seal-ink); }
+:focus-visible { outline: 1.5px solid var(--color-focus); outline-offset: 2px; }
+h1, h2, h3 { margin: 0; font-weight: 400; font-synthesis: none; text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+svg { display: block; }
+[hidden] { display: none !important; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { white-space: nowrap; cursor: pointer; }
+button:disabled { opacity: 0.4; cursor: not-allowed; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-rule); border: 3px solid var(--color-paper); }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}

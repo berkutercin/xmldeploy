@@ -1,0 +1,49 @@
+:root {
+  color-scheme: light;
+  --ease-out: cubic-bezier(0.19, 1, 0.22, 1);
+  --dur-micro: 100ms;
+  --dur-short: 200ms;
+  --dur-long: 600ms;
+
+  /* Kaplamasız, neredeyse beyaz kâğıt; mürekkep saf siyah değil. */
+  --color-paper: #f5f4f6;
+  --color-paper-warm: #faf6f5;
+  --color-paper-cool: #eef3ef;
+  --color-paper-2: #ebeaf3;
+  --color-paper-3: #fdfcfd;
+  --color-ink: #16181a;
+  --color-ink-2: #3a3c40;
+  --color-muted: #66645f;
+  --color-rule: #c9c7c4;
+  --color-accent: #16181a;
+  --color-accent-ink: #f5f4f6;
+  --color-seal: #dcddf3;
+  --color-seal-ink: #2e3170;
+  --color-focus: #4b4fa8;
+  --color-error: #a8322b;
+  --color-success: #2f6b45;
+
+  --font-body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, monospace;
+  --font-list: "Allo", "Segoe UI", system-ui, sans-serif;
+}
+
+html.dark, [data-mode="dark"] {
+  color-scheme: dark;
+  --color-paper: #141517;
+  --color-paper-warm: #17161a;
+  --color-paper-cool: #121615;
+  --color-paper-2: #1d1e21;
+  --color-paper-3: #1a1b1e;
+  --color-ink: #ecebee;
+  --color-ink-2: #c4c3c8;
+  --color-muted: #9b99a0;
+  --color-rule: #36383c;
+  --color-accent: #ecebee;
+  --color-accent-ink: #141517;
+  --color-seal: #3b3d63;
+  --color-seal-ink: #dcddf3;
+  --color-focus: #a9acf0;
+  --color-error: #f08a80;
+  --color-success: #7cc59a;
+}

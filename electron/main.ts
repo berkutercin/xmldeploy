@@ -1,5 +1,6 @@
 import { app, BrowserWindow, ipcMain, Menu, session } from 'electron';
 import path from 'node:path';
+import { autoUpdater } from 'electron-updater';
 import { proxyGibQuery } from './gibProxy';
 import { renderPdf } from './pdfRenderer';
 
@@ -42,7 +43,21 @@ function createWindow() {
 
   if (DEV_URL) win.loadURL(DEV_URL);
   else win.loadFile(path.join(__dirname, '../dist/index.html'));
+  checkForUpdates(win);
 }
+
+// Güncelleme GitHub sürümlerinden, kendi ağ oturumunda (electron-updater) iner; arayüzün ağ engeli bundan etkilenmez.
+// İnen sürüm uygulama kapanınca kurulur; arayüz isterse hemen yeniden başlatır.
+function checkForUpdates(win: BrowserWindow) {
+  if (!app.isPackaged) return;
+  autoUpdater.on('update-downloaded', (info) => {
+    if (!win.isDestroyed()) win.webContents.send('update:ready', info.version);
+  });
+  autoUpdater.on('error', () => {}); // çevrimdışıyken ya da GitHub'a ulaşılamazken sessiz geç
+  autoUpdater.checkForUpdates().catch(() => {});
+}
+
+ipcMain.handle('update:install', () => autoUpdater.quitAndInstall(true, true));
 
 ipcMain.handle('gib:query', async (_e, query: unknown) => {
   if (typeof query !== 'string' || query.length > 4000) {

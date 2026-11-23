@@ -20,7 +20,7 @@ GİB Zarf XML (`StandardBusinessDocument` / `Package`) ve doğrudan UBL-TR XML'l
 
 ## Positioning
 
-GİB'in resmi görüntüleyicisinin açamadığı zarf XML'lerini açar: zarfın içindeki faturaları ayıklar, gömülü firma XSLT'siyle orijinal görünümde PDF üretir. Her şey kullanıcının bilgisayarında işlenir; dışarı giden tek istek GİB sorgusudur.
+GİB'in resmi görüntüleyicisinin açamadığı zarf XML'lerini açar: zarfın içindeki faturaları ayıklar, gömülü firma XSLT'siyle orijinal görünümde PDF üretir. Her şey kullanıcının bilgisayarında işlenir; dışarı giden istekler yalnızca GİB sorgusu ve açılıştaki sürüm denetimidir (GitHub).
 
 ## Operating Context
 

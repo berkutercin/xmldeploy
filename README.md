@@ -30,14 +30,15 @@ Entegratörden ya da e-postadan gelen XML'lerin çoğu **zarflıdır** (`Standar
 
 Sorgu, uygulamanın ana sürecinden `sorgu.efatura.gov.tr` adresine **kullanıcının kendi internet bağlantısıyla** gider. Arada başka sunucu yoktur. GİB yurt dışı ve bulut IP'lerini engellediği için sorgu yalnızca **Türkiye IP'sinden** çalışır.
 
-Uygulamanın dışarıya gönderdiği tek istek budur. XML içerikleri hiçbir yere gönderilmez.
+XML içerikleri hiçbir yere gönderilmez. Uygulamanın dışarıya gönderdiği diğer tek istek, açılışta GitHub'daki son sürümü denetlemesidir (aşağıda).
 
 ## Kurulum
 
-`npm run dist` ile üretilen `release/ZarfPDF Setup <sürüm>.exe` dosyasını çalıştırın.
+[Sürümler](https://github.com/berkutercin/xmldeploy/releases/latest) sayfasındaki `ZarfPDF-Setup-<sürüm>.exe` dosyasını çalıştırın. Kendiniz derlemek için: `npm run dist` → `release/`.
 
 - Kurulum dosyası imzasızdır. Windows SmartScreen'de **Daha fazla bilgi → Yine de çalıştır** seçeneğini kullanın.
-- Otomatik güncelleme yoktur. Yeni sürüm, yeni kurulum dosyasıyla elle kurulur.
+- **Otomatik güncelleme:** Uygulama açılışta GitHub'daki son sürüme bakar, yenisi varsa arka planda indirir. Üst çubukta "Yeniden başlat" çıkar; basılmazsa güncelleme uygulama kapanınca kurulur. 1.1.1 ve öncesi bu özelliği içermez; 1.2.0 bir kez elle kurulmalıdır.
+- **Yeni sürüm yayınlama:** `package.json` sürümünü artırın, `npm run dist` çalıştırın, GitHub'da `v<sürüm>` etiketli bir sürüm açıp `release/` altındaki `ZarfPDF-Setup-<sürüm>.exe`, `.blockmap` ve `latest.yml` dosyalarını yükleyin. `latest.yml` olmadan güncelleme çalışmaz.
 - Şimdilik yalnızca Windows için paketleniyor. macOS ve Linux sonra eklenecek.
 
 ## Geliştirme

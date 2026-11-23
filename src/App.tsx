@@ -7,12 +7,22 @@ import type { GibQueryInput } from './lib/gib';
 
 type Tab = 'convert' | 'gib';
 
+declare global {
+  interface Window {
+    /** Electron preload köprüsü: yeni sürüm arka planda inince haber verir (electron/main.ts). */
+    updates?: { onReady: (cb: (version: string) => void) => void; install: () => Promise<void> };
+  }
+}
+
 export default function App() {
   const [tab, setTab] = useState<Tab>('convert');
   const [gibPrefill, setGibPrefill] = useState<GibQueryInput | null>(null);
   const [count, setCount] = useState<{ files: number; docs: number }>({ files: 0, docs: 0 });
   const onCount = useCallback((files: number, docs: number) => setCount({ files, docs }), []);
   const [theme, setTheme] = useState<Theme>(() => getInitialTheme());
+  const [update, setUpdate] = useState<string | null>(null);
+
+  useEffect(() => { window.updates?.onReady(setUpdate); }, []);
 
   useEffect(() => {
     applyTheme(theme);
@@ -36,7 +46,17 @@ export default function App() {
               GİB Doğrula
             </TabLink>
           </nav>
-          <span className="token ml-auto text-muted" aria-live="polite">
+          {update && (
+            <button
+              type="button"
+              className="btn ml-auto h-8 px-3"
+              onClick={() => window.updates?.install()}
+              title="Güncelleme indi. Şimdi yeniden başlatmazsanız uygulama kapanınca kurulur."
+            >
+              {update} hazır · Yeniden başlat
+            </button>
+          )}
+          <span className={`token text-muted ${update ? '' : 'ml-auto'}`} aria-live="polite">
             {count.docs ? `${count.files} dosya · ${count.docs} belge` : 'Belge yok'}
           </span>
           <button

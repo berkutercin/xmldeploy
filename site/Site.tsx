@@ -11,13 +11,13 @@ import pdfGib from './assets/pdf-gib.png';
 
 // Yeni sürümde bu blok birlikte güncellenir (SHA-256: release/ içindeki kurulum dosyasının özeti).
 const RELEASE = {
-  version: '1.1.1',
+  version: '1.2.0',
   date: '23 Kasım 2026',
   size: '117 MB',
-  sha256: '4b5ede053620675bd2bd87cde2beaa0118fad2be3c51301591f53df6d74728a8',
+  sha256: '09ed21df4858e3d7802d39c57121ffa31a490739eafdbe736b492e044e67060a',
 };
 const REPO = 'https://github.com/berkutercin/xmldeploy';
-const DOWNLOAD = `${REPO}/releases/download/v${RELEASE.version}/ZarfPDF.Setup.${RELEASE.version}.exe`;
+const DOWNLOAD = `${REPO}/releases/download/v${RELEASE.version}/ZarfPDF-Setup-${RELEASE.version}.exe`;
 const NOTES = `${REPO}/releases/tag/v${RELEASE.version}`;
 
 const ZARF = '02041409a-aa25-08a6-b926-56acbd65cdc7.xml';
@@ -53,7 +53,8 @@ const FEATURES: [string, string][] = [
   ['Toplu dönüştürme', 'Zarf XML’lerini tek tek, klasör ya da ZIP olarak bırakın. Her zarf ayrı bir PDF olur; hepsini tek ZIP olarak indirirsiniz. e-Fatura, e-Arşiv ve e-İrsaliye XML’leri de açılır.'],
   ['Orijinal görünüm', 'PDF, zarfın içindeki XSLT görüntüleme şablonuyla basılır; fatura, satıcının gönderdiği gibi görünür. Şablon yoksa standart A4 düzeni kullanılır.'],
   ['GİB doğrulaması', 'Faturanın GİB kayıtlarındaki durumunu sorgular: geçerli, iptal edilmiş, reddedilmiş ya da kaydı bulunamadı.'],
-  ['Bilgisayarınızda çalışır', 'Dosyalar hiçbir sunucuya yüklenmez. İnternete giden tek istek GİB sorgusudur.'],
+  ['Bilgisayarınızda çalışır', 'Dosyalar hiçbir sunucuya yüklenmez. İnternete yalnızca GİB sorgusu ve açılıştaki sürüm denetimi gider.'],
+  ['Kendini günceller', 'Yeni sürüm arka planda iner; tek tıkla yeniden başlatın ya da uygulamayı kapattığınızda kurulsun.'],
 ];
 
 const SPECS: [string, string][] = [

@@ -1,14 +1,14 @@
 {
   "name": "zarf-pdf",
   "private": true,
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "e-Fatura / e-Arşiv / e-İrsaliye XML ve GİB Zarf XML → PDF dönüştürücü ve GİB durum sorgulama (masaüstü)",
   "type": "module",
   "scripts": {
     "dev": "node scripts/dev.mjs",
     "build": "tsc -b && vite build && node scripts/build-electron.mjs",
     "start": "npm run build && electron .",
-    "dist": "npm run build && electron-builder --win",
+    "dist": "npm run build && electron-builder --win --publish never",
     "test": "vitest run",
     "site:dev": "vite --config site/vite.config.ts",
     "site:build": "vite build --config site/vite.config.ts"
@@ -24,6 +24,7 @@
     "autoprefixer": "^10.4.20",
     "electron": "^45.4.1",
     "electron-builder": "^26.18.0",
+    "electron-updater": "^6.8.11",
     "esbuild": "^0.25.12",
     "jsdom": "^26.0.0",
     "jszip": "^3.10.1",
@@ -64,7 +65,13 @@
       ],
       "language": "1055",
       "shortcutName": "ZarfPDF",
-      "include": "build/installer.nsh"
+      "include": "build/installer.nsh",
+      "artifactName": "ZarfPDF-Setup-${version}.${ext}"
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "berkutercin",
+      "repo": "xmldeploy"
     }
   }
 }

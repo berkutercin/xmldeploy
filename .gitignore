@@ -12,3 +12,4 @@ dist-electron
 release
 .claude/
 .impeccable/
+dist-site
